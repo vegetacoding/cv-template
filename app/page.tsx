@@ -58,6 +58,7 @@ const projects = [
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(projects[0]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) =>
@@ -133,6 +134,14 @@ export default function Home() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-black text-white px-4 py-2 rounded"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/CV.pdf";
+                link.download = "Nakia_Hart_CV.pdf";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
             >
               Download CV
             </motion.button>
