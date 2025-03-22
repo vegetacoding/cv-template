@@ -26,8 +26,95 @@ body {
   .social-link {
     @apply text-gray-600 hover:text-black transition-colors duration-200;
   }
-  
+
   .nav-link {
     @apply text-gray-600 hover:text-black transition-colors duration-200 px-4 py-2;
+  }
+}
+
+@media print {
+
+  /* Hide navigation, buttons, and other non-essential elements */
+  nav,
+  button,
+  .social-link,
+  form,
+  footer {
+    display: none !important;
+  }
+
+  /* Reset background colors and ensure text is visible */
+  * {
+    background-color: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure all sections are visible and properly spaced */
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin: 20px 0;
+    padding: 20px 0 !important;
+  }
+
+  /* Adjust typography for print */
+  h1,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Ensure images print properly */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Remove animations */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Adjust layout for print */
+  .max-w-6xl {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+  }
+
+  /* Ensure proper page breaks */
+  #about,
+  #education,
+  #projects,
+  #resume,
+  #contact {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* Hide scroll indicators and navigation elements */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Ensure text is readable */
+  p,
+  li {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  /* Make links visible in print */
+  a {
+    text-decoration: none !important;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
   }
 }
