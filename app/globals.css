@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #f0f2f0;
+}
+
+.playfair {
+  font-family: var(--font-playfair);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .social-link {
+    @apply text-gray-600 hover:text-black transition-colors duration-200;
+  }
+  
+  .nav-link {
+    @apply text-gray-600 hover:text-black transition-colors duration-200 px-4 py-2;
+  }
+}
